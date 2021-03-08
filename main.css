@@ -1,0 +1,43 @@
+
+#headerformat{
+  font-family: 'Roboto', sans-serif;
+}
+
+#dingusSold {
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  text-align: left;
+}
+#jxy {
+  height: 1px;
+  width: 10%;
+  max-width: 900px;
+}
+#smallwordsformat{
+  font-family: 'Montserrat', sans-serif;
+  font-size: small;
+}
+
+#heavywordformat{
+  font-family: 'Montserrat', sans-serif;
+  font-size: medium;
+}
+
+#inline {
+  white-space: nowrap;
+  width:0%
+}
+
+#inline>h5{
+  display: inline-block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+div {
+  display: flex;
+  justify-content: space-between;
+}
+

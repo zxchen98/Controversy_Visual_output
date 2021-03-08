@@ -1,0 +1,172 @@
+
+ <!DOCTYPE html>
+<html>
+   <head>
+        <meta charset="UTF-8" />
+        <title class = "headerformat">Controversy in Wikipedia Articles</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,200;1,300&display=swap" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+        <link href="main.css" rel="stylesheet" />
+   </head>
+ 
+   <body>
+        <section id = "inline">
+            <h1>Controversy in Wikipedia Articles</h1><img src ="Example.png">
+        </section>
+
+        <hr />
+        <b id = "smallwordsformat">This website is dedicated to a project called "Controversy in Wikipedia Articles". This website contains the basic information about our
+            project, such as code, main purpose, report and etc.
+
+        </b>
+ 
+        <!-- <div id="jxy"></div> -->
+        <section id = "inline">
+            <h2 id = "heavywordformat">Main purpose:</h2>
+        </section>
+        <section id = "smallwordsformat">
+            <p>
+                For the main purpose of this project, we generate it from our previous project which is based on an essay called, 
+                <a href = "https://arxiv.org/abs/1107.3689"> Edit wars in Wikipedia</a> and a project called 
+                <a href="http://wwm.phy.bme.hu">WikiWarMonitor.</a> 
+
+                In our previous analysis, we mainly focused on analyzing whether M-statistics, 
+                which is a way to measure the amount of collaboration and conflict in Wikipedia articles or a way to measure the controversy of Wikipedia articles, 
+                is an accurate way or not. In our final conclusion, we found out that M-statistics is not a good way to accurately represents the controversy and conflict of an Wikipedia article. 
+                
+                <br>
+                This conclusion lets us generate the main purpose for this project, which is to find a more accurate weighted sum formula to evaluate the controversy of Wikipedia articles. 
+                In this project, we will analysis some elements like the results from sentiment analysis and find out whether those elements can be used in our weighted sum formula.
+            </p>
+
+        </section>
+
+        <section id="inline">
+            <h3 id = "heavywordformat">Procedure:</h3>
+        </section>
+        <section id = "smallwordsformat">
+            <p>
+                Firstly, Our code starts by downloading the raw XML files from 
+                <a href = "https://dumps.wikimedia.org/enwiki/20210220/">Wikimedia Data Archives</a> and parsing those files to get the comment content that we
+                use in our sentiment analysis part. 
+                <br>
+                Secondly, we go to the <a href = "http://wwm.phy.bme.hu/light.html">WikiWarMonitor</a> to get the English Light Dump 
+                that we need in our second part. This is because this file contains the basic information that we will use in our analysis process, s
+                uch as the article name, revision times, commenters' name and etc. We will use the article name and commenter's name to merge with our comment content. 
+                And we will use revision times to calculate the <i>M-score</i> that we need. 
+                <br>
+                Thirdly, after we merging our comments with the English Light Dump data, we start to use article titles and pageview API to get the raw description number of
+                views on those articles from those articles' start date to January 1st, 2021
+                <br>
+                Fourly, we merge all comments, pageview counts with the English Light Dump data and start our analysis to find out elements that will be used in our weighted 
+                sum formula. 
+                <br>
+                <br>
+                To see more details of our research, view our <a href = "https://docs.google.com/document/d/1kyVh8xj963-VL57ZJWtvTIep5c9XRXcJ0HQMGRnJJRw/export?format=pdf" download>report</a> here.
+            </p>
+        </section>
+
+        <section id="inline">
+            <h4 id = "heavywordformat">Datasets:</h4>
+        </section>
+        <section id = "smallwordsformat"> 
+            <p>
+                <a href = "https://dumps.wikimedia.org">Wikipedia dumps</a>
+            </p>
+            <p>
+                <a href = "http://wwm.phy.bme.hu/light.html">English Light Dump</a>
+            </p>
+            <p>
+                <a href = "https://github.com/Commonists/pageview-api">pageview API</a>
+            </p>
+        </section>
+
+        <section id = "inline">
+            <h5 id = "heavywordformat">Software:</h5>
+            <a href = "https://github.com/zxchen98/DSC180B">Code for our research</a>
+        </section>
+
+        <hr />
+
+        <section>
+            <h6 id = "heavywordformat" style="margin-left: 2.5em" >Important analysis graphs:</h6>
+            <div class="inline-block">
+                <img src ="sentiment_M.png", width="30%" height="50%">
+                <img src ="Sum_sentiment_viewcount.png", width="30%" height="50%">
+                <img src ="View_count_m.png", width="30%" height="50%">
+            </div>
+        </section>
+
+        <hr />
+
+
+        <section id="inline">
+            <h5 id = "heavywordformat" >Weighted sum formula:</h5>
+            <b id = "heavywordformat", style = "color:red">Controversy level = ((mean reverts + mean sentiment score) * log(page view counts)) + log(M)</b>
+            <p style="margin-left: 2.5em">
+                Mean reverts: the percentage of edits for each article;
+                <br>
+                Mean sentiment score: the mean number of sentiment score for each article's comments; 
+                <br>
+                log(page view counts): the log of views for each article;
+                <br>
+                log(M): the log of M-score.
+            </p>
+            
+
+        </section>
+
+        <section>
+            <img src ="M score performance.png", width="30%" height="50%">
+            <img src ="arrow image.png", width="10%" height="30%", style= "margin-bottom:8%">
+            <img src ="Weighted sum formula performance.png", width="30%" height="50%">
+            <p>
+                Using this formula, we plot and compare the statistic line with the original measurement (M statistic), 
+                and find out the most improvement is we successfully make the slope smoother (see the right figure). 
+                Although there is still a steep decrease within top 5% articles, we considered this more likely to be a feature in Wikipedia 
+                that most articles are relatively “boring” than a drawback of our measurement. 
+            </p>
+        </section>
+
+        <hr />
+
+        <section id="inline">
+            <h7 id = "heavywordformat">Contribution:</h7>
+            <b id = "smallwordsformat">Xingyu: Website and report; Xiangchen: Code and report; Hengyu: Report</b>
+        </section>
+
+        <section>
+            <h8 id = "heavywordformat">Resources:</h8>
+            <b id = "smallwordsformat"> 
+                <a href = "https://arxiv.org/abs/1107.3689"> Edit wars in Wikipedia</a>,
+                <a href="http://wwm.phy.bme.hu">WikiWarMonitor</a>,
+                <a href = "https://dumps.wikimedia.org/enwiki/20210220/">Wikimedia Data Archives</a>
+            </b>
+        </section>
+        <section>
+            <h8 id = "heavywordformat">Our report link:</h8>
+            <b id = "smallwordsformat">
+                <a href = "https://docs.google.com/document/d/1kyVh8xj963-VL57ZJWtvTIep5c9XRXcJ0HQMGRnJJRw/export?format=pdf" download>report</a> 
+            </b>
+        </section>
+        <section>
+            <h8 id = "heavywordformat">Our presentation link:</h8>
+            <b id = "smallwordsformat">
+                <a href = "https://docs.google.com/presentation/d/1r0SdzYR00Lo0nrdWvU-4h4mRbwgwzfXqBay_bk8nloM/edit#slide=id.gc510dfb636_0_2/export?format=pdf" download>presentation</a> 
+            </b>
+        </section>
+        <section>
+            <h8 id = "heavywordformat">Our code link:</h8>
+            <b id = "smallwordsformat">
+                <a href = "https://github.com/zxchen98/DSC180B">Code for our research</a>
+            </b>
+        </section>
+
+
+   </body>
+</html>
